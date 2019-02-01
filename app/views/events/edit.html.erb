@@ -1,8 +1,9 @@
-<% provide(:title, 'Crear Evento') %>
-<h1>Crear Eventos</h1>
+<% provide(:title, "Edit user") %>
+<h1>Update your profile</h1>
+
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
-    <%= form_for(@event, url: newevent_path) do |f| %>
+    <%= form_for(@event) do |f| %>
 
       <%= f.label :name, "Nombre" %>
       <%= f.text_field :name %>
@@ -16,9 +17,7 @@
       <%= f.label :description,"Descripción" %>
       <%= f.text_field :description %>
 
-      <%= f.hidden_field :user_id, :value => current_user.id %>
-
-      <%= f.submit "Crear un evento", class: "btn btn-primary" %>
+      <%= f.submit "Save changes", class: "btn btn-primary" %>
     <% end %>
   </div>
 </div>

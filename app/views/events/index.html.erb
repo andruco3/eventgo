@@ -1,10 +1,21 @@
-<% provide(:title, 'All users') %>
-<h1>All users</h1>
-
-<ul class="users">
+<% provide(:title, 'Eventos') %>
+<h1>Tus Eventos</h1>
+<%= link_to "Crear",new_event_path %>
+<table class=" table table-striped sortable">
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Lugar</th>
+    <th>Acciones</th>
+  </tr>
+  </thead>
+  <tbody>
   <% @events.each do |event| %>
-    <li>
-     <%= link_to event.name, event %>
-    </li>
+    <tr>
+      <td> <%= link_to event.name %></td>
+      <td><%= event.place %></td>
+      <td> <%= link_to "Eliminar", event, method: :delete, data: { confirm: "You sure?" } %>
+        <%= link_to "Editar",edit_event_path(event)%></td>    </tr>
   <% end %>
-</ul>
+  </tbody>
+</table>
